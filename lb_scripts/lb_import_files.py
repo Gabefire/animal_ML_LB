@@ -8,7 +8,7 @@ import datetime
 import multiprocessing
 import time
 import urllib3
-from translate import translate
+from lb_scripts.translate import translate
 
 _=load_dotenv(find_dotenv())
 
