@@ -1,3 +1,4 @@
 tensorflow == 2.15
 labelbox
 matplotlib
+python-dotenv
