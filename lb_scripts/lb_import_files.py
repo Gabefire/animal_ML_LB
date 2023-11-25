@@ -8,7 +8,7 @@ import datetime
 import multiprocessing
 import time
 import urllib3
-from lb_scripts.translate import translate
+from translate import translate
 
 _=load_dotenv(find_dotenv())
 
@@ -59,12 +59,12 @@ def upload_data_row(assets: list[dict[str:str]], dataset: lb.Dataset, batch_size
     num_batches = ceil(len(assets)/batch_size_steps)
     counter = 1
     errors = []
+
     print(f"Batch: {counter}/{num_batches}")
     while index <= len(assets):
         try:
             print("Uploading...")
             result = dataset.create_data_rows(assets[index: index + batch_size_steps])
-            result.wait_till_done()
         except:
             print(f"Error: {result.errors}")
             print(f"Error_Range: {index}-{batch_size_steps}")
@@ -72,7 +72,6 @@ def upload_data_row(assets: list[dict[str:str]], dataset: lb.Dataset, batch_size
         counter += 1
         os.system("clear")
         print(f"Batch: {counter}/{num_batches}")
-        time.sleep(4)
         index += batch_size_steps
     if errors:
         print("Some batches were not uploaded")
@@ -175,7 +174,13 @@ if __name__ == "__main__":
     CLIENT = lb.Client()
 
 
-    main(CLIENT)
+    dataset = CLIENT.create_dataset(
+        name = "test"
+    )
+
+    assets = import_local_files("raw-img")
+
+    upload_data_row(assets, dataset, 1000)
 
 
     
