@@ -1,6 +1,6 @@
 *.env
-TF/
+env/
 raw-img/
 archive.zip
-setup/API_key_personal.py
-setup/__pycache__
+API_key_personal.py
+__pycache__/
