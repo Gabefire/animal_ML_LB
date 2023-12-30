@@ -2,3 +2,5 @@
 TF/
 raw-img/
 archive.zip
+setup/API_key_personal.py
+setup/__pycache__

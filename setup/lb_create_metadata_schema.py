@@ -5,7 +5,6 @@ from labelbox.schema.data_row_metadata import DataRowMetadataKind
 from uuid import uuid4
 from dotenv import load_dotenv, find_dotenv
 import sys
-from translate import translate
 
 _=load_dotenv(find_dotenv())
 
