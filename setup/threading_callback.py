@@ -3,7 +3,9 @@ from PIL import Image
 import numpy as np
 import io
 
-IMG_SIZE = 64
+IMG_SIZE = 128
+
+
 
 def get_img(aws_url: str):
     s3 = boto3.resource('s3', region_name='us-east-1')
