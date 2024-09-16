@@ -3,4 +3,4 @@ matplotlib==3.8
 python-dotenv==1.0
 labelbox[data]==3.58
 boto3==1.34
-tqdm==4.66
+tqdm==4.66.3
